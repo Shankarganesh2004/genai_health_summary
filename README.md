@@ -1,7 +1,3 @@
-Absolutely, Shankar — here’s a detailed and professional project description you can drop straight into your `README.md`. It highlights your technical choices, real-world impact, and extensibility:
-
----
-
 ## 🧠 GenAI Health Summary App
 
 This project is a lightweight, AI-powered health assistant that extracts blood test results from scanned medical reports and generates clear, actionable summaries using open-source language models. Designed for speed, clarity, and extensibility, it bridges OCR, prompt engineering, and GenAI to deliver meaningful insights from routine diagnostics.
