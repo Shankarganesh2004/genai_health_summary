@@ -1,15 +1,29 @@
-from transformers import pipeline
-
-# Load FLAN-T5 base model (fast + free)
-generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-)
-
+import requests
 def generate_summary(interpretation):
-    prompt = "What is a short health summary and advice based on these blood test results?\n"
+    prompt = "Summarize the following blood test results and provide short health advice:\n\n"
     for test, info in interpretation.items():
         prompt += f"{test}: {info['value']} ({info['status']})\n"
 
-    response = generator(prompt, max_new_tokens=150)
-    return response[0]['generated_text']
+    headers = {
+        "Authorization": "Bearer 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",
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "model": "sonar",
+        "messages": [
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+    response = requests.post("https://api.perplexity.ai/chat/completions", headers=headers, json=payload)
+    result = response.json()
+
+    # Debug print to inspect structure
+    print("API response:", result)
+
+     # Safe access
+    if 'choices' in result and result['choices']:
+        return result['choices'][0]['message']['content']
+    else:
+        return "Sorry, the model did not return a valid summary."
