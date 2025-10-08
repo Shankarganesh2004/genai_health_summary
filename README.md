@@ -36,3 +36,4 @@ streamlit run app.py
 Upload a blood report image and receive a summary like:
 
 > Hemoglobin is low, suggesting mild anemia. Glucose and HbA1c are elevated, indicating prediabetes. ALT is high, suggesting liver stress. Platelets are slightly elevated. Consider dietary changes and follow-up with a doctor.
+You can access the streamlit app through the link:https://blood-summary.streamlit.app/
