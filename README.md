@@ -28,6 +28,7 @@ Blood reports are often dense and hard to interpret. This app empowers users wit
 ### 🚀 How to Use
 
 ```bash
+git clone --branch master https://github.com/username/repo-name.git
 pip install -r requirements.txt
 streamlit run app.py
 ```
